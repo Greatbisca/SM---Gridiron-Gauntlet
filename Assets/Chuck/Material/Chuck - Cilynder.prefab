@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 808640926403243820}
   - component: {fileID: 8824814659062084360}
   m_Layer: 0
-  m_Name: Chunk - Cilynder
+  m_Name: Chuck - Cilynder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
