@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4773757049235237813}
   - component: {fileID: 7683990057173796537}
   - component: {fileID: 7722561561273016641}
-  - component: {fileID: 410893486795589874}
   - component: {fileID: 808640926403243820}
   - component: {fileID: 8824814659062084360}
   m_Layer: 0
@@ -117,19 +116,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &410893486795589874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8020323488880552269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedca84930439a84abde31427d21b987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChargeHazard
-  m_Speed: 0
 --- !u!114 &808640926403243820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +129,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargeHazard
   m_Speed: 5
+  m_Distance: 12
+  m_StopTime: 1
+  m_CellSize: 1
+  m_PauseAfterCells: 2
+  m_PauseTime: 1
 --- !u!54 &8824814659062084360
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -168,5 +159,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
