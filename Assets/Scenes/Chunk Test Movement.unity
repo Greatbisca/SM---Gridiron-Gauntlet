@@ -432,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6903666415606948057, guid: 9ea6cc0a804547a40bc09e602dde7386, type: 3}
       propertyPath: m_Name
-      value: Parede_Invisivel (1)
+      value: InvisibleWall_South
       objectReference: {fileID: 0}
     - target: {fileID: 6903666415606948057, guid: 9ea6cc0a804547a40bc09e602dde7386, type: 3}
       propertyPath: m_Layer
@@ -908,7 +908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6903666415606948057, guid: 9ea6cc0a804547a40bc09e602dde7386, type: 3}
       propertyPath: m_Name
-      value: Parede_Invisivel (2)
+      value: InvisibleWall_East
       objectReference: {fileID: 0}
     - target: {fileID: 6903666415606948057, guid: 9ea6cc0a804547a40bc09e602dde7386, type: 3}
       propertyPath: m_Layer
@@ -1064,7 +1064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4282793608415368012, guid: c9ea5ab118bf8514f8050803e0d7fc2c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.806556
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 4282793608415368012, guid: c9ea5ab118bf8514f8050803e0d7fc2c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2731,15 +2731,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1136768354961606778, guid: 993f0602a525d934cbe3d3506aecb755, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.88
+      value: -5.89
       objectReference: {fileID: 0}
     - target: {fileID: 1136768354961606778, guid: 993f0602a525d934cbe3d3506aecb755, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8065562
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 1136768354961606778, guid: 993f0602a525d934cbe3d3506aecb755, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.898269
+      value: 14.89
       objectReference: {fileID: 0}
     - target: {fileID: 1136768354961606778, guid: 993f0602a525d934cbe3d3506aecb755, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3041,7 +3041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6903666415606948057, guid: 9ea6cc0a804547a40bc09e602dde7386, type: 3}
       propertyPath: m_Name
-      value: Parede_Invisivel (3)
+      value: InvisibleWall_West
       objectReference: {fileID: 0}
     - target: {fileID: 6903666415606948057, guid: 9ea6cc0a804547a40bc09e602dde7386, type: 3}
       propertyPath: m_Layer
@@ -4313,7 +4313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6903666415606948057, guid: 9ea6cc0a804547a40bc09e602dde7386, type: 3}
       propertyPath: m_Name
-      value: Parede_Invisivel
+      value: InvisibleWall_North
       objectReference: {fileID: 0}
     - target: {fileID: 6903666415606948057, guid: 9ea6cc0a804547a40bc09e602dde7386, type: 3}
       propertyPath: m_Layer
