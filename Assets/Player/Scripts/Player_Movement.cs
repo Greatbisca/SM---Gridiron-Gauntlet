@@ -16,7 +16,7 @@ public class movement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; // evita que o player tombe
+        //Não é necessário -> rb.freezeRotation = true; // evita que o player tombe
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         speed = 4f;
         pontos = 0;
@@ -53,14 +53,13 @@ public class movement : MonoBehaviour
         {
             float dist = speed * Time.fixedDeltaTime + 0.01f;
 
-            // há o outro player à frente?
+            // há o outro player à frente? torna mais dificil de empurrar 
             if (rb.SweepTest(dir, out RaycastHit hit, dist) && hit.collider.GetComponentInParent<movement>() != null)
             {
-                Vector3 n = hit.normal;
-                n.y = 0f;
-                n.Normalize();
-                dir = Vector3.ProjectOnPlane(dir, n); // anda só ao longo do "muro"
+                speed = 2f; 
             }
+			else
+				speed = 4f; 
         }
 
         Vector3 v = dir * speed;
