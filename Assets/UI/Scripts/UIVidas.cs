@@ -1,91 +1,78 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using UnityEngine.UIElements;
 
 public class UIVidas : MonoBehaviour
 {
-    [Header("Referências dos Players")]
     [SerializeField] private Life m_Player1;
     [SerializeField] private Life m_Player2;
 
-    [Header("UI Player 1 (Esquerda)")]
-    [SerializeField] private TextMeshProUGUI m_TextoVidas1;
-    [SerializeField] private Image[] m_Coracoes1;
-
-    [Header("UI Player 2 (Direita)")]
-    [SerializeField] private TextMeshProUGUI m_TextoVidas2;
-    [SerializeField] private Image[] m_Coracoes2;
-
-    [Header("Cores")]
-    [SerializeField] private Color m_CorVivo = Color.red;
-    [SerializeField] private Color m_CorMorto = Color.gray;
-
-    void Start()
+    //[SerializeField] private Label m_TextoVidas1;
+    //[SerializeField] private Label m_TextoVidas2;
+	[SerializeField] private Image m_VidaPlayer1;
+    [SerializeField] private Image m_VidaPlayer2;
+	
+	[SerializeField] private Texture2D imagemVida3;
+	[SerializeField] private Texture2D imagemVida2;
+	[SerializeField] private Texture2D imagemVida1;
+	StyleBackground barraVida;
+	
+    void OnEnable()
     {
-        // Se não tiver referências, tenta encontrar os Players
-        if (m_Player1 == null || m_Player2 == null)
+        UIDocument documento = GetComponent<UIDocument>();
+        //m_TextoVidas1 = documento.rootVisualElement.Q<Label>("TextoVidas1");
+        //m_TextoVidas2 = documento.rootVisualElement.Q<Label>("TextoVidas2");
+		m_VidaPlayer1 = documento.rootVisualElement.Q<Image>("life_player1");
+		m_VidaPlayer2 = documento.rootVisualElement.Q<Image>("life_player2");
+		barraVida = new StyleBackground(imagemVida3);
+        
+		if (m_Player1 == null || m_Player2 == null)
         {
-            Life[] players = FindObjectsOfType<Life>();
+            Life[] players = FindObjectsByType<Life>(FindObjectsSortMode.None);
+
             if (players.Length >= 2)
             {
                 m_Player1 = players[0];
                 m_Player2 = players[1];
-                Debug.Log("UIVidas: Players encontrados automaticamente");
             }
             else
             {
                 Debug.LogError("UIVidas: Não consegui encontrar 2 Players!");
-                return;
             }
         }
-
-        AtualizarUI();
     }
 
     void Update()
     {
-        AtualizarUI();
-    }
-
-    private void AtualizarUI()
-    {
-        // Atualizar Player 1
-        if (m_Player1 != null)
+	
+        if (m_Player1 != null && m_VidaPlayer1 != null)
         {
-            AtualizarUIPlayer(m_Player1, m_TextoVidas1, m_Coracoes1);
+            int vidasAtuais = m_Player1.ObterVidasAtuais();
+            //m_TextoVidas1.text = $"P1: {vidasAtuais}";
+			defineImagem(vidasAtuais);
+			m_VidaPlayer1.style.backgroundImage = barraVida;
         }
 
-        // Atualizar Player 2
-        if (m_Player2 != null)
+        if (m_Player2 != null && m_VidaPlayer2 != null)
         {
-            AtualizarUIPlayer(m_Player2, m_TextoVidas2, m_Coracoes2);
-        }
-    }
-
-    private void AtualizarUIPlayer(Life player, TextMeshProUGUI texto, Image[] coracoes)
-    {
-        int vidasAtuais = player.ObterVidasAtuais();
-
-        // Atualizar Texto
-        if (texto != null)
-        {
-            texto.text = $"P{(player == m_Player1 ? 1 : 2)}: {vidasAtuais}";
-        }
-
-        // Atualizar Imagens (Corações)
-        if (coracoes != null && coracoes.Length > 0)
-        {
-            for (int i = 0; i < coracoes.Length; i++)
-            {
-                if (i < vidasAtuais)
-                {
-                    coracoes[i].color = m_CorVivo;
-                }
-                else
-                {
-                    coracoes[i].color = m_CorMorto;
-                }
-            }
+            int vidasAtuais = m_Player2.ObterVidasAtuais();
+            //m_TextoVidas2.text = $"P2: {vidasAtuais}";
+			defineImagem(vidasAtuais);
+			m_VidaPlayer2.style.backgroundImage = barraVida;
+			
+			// Espelhar horizontalmente a imagem do Player 2
+			m_VidaPlayer2.style.scale = new Scale(new Vector2(-1, 1));
         }
     }
+	
+	void defineImagem(int vida){		
+		if(vida == 3){
+			barraVida = new StyleBackground(imagemVida3);
+		}else if(vida == 2){
+			barraVida = new StyleBackground(imagemVida2);
+		}else if(vida == 1){
+			barraVida = new StyleBackground(imagemVida1);
+		}else
+			barraVida = null;
+	}
+
 }
