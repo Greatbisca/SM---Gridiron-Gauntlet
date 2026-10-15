@@ -197,6 +197,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   disable_move: 0
+  runSound: {fileID: 8300000, guid: 9d31d5ae5d4ff9c498b422d6a531bdc6, type: 3}
+  audioSettings: {fileID: 11400000, guid: 8c5f2e9a1b3d4f67890123456789abcd, type: 2}
 --- !u!114 &1411823040952940603
 MonoBehaviour:
   m_ObjectHideFlags: 0
