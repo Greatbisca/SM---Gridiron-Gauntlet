@@ -2214,6 +2214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fdf72595106154698a8213e7860623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
+  warningSound: {fileID: 8300000, guid: 2ec78973a9a1c994cb147b8501a47a50, type: 3}
+  finishSound: {fileID: 8300000, guid: b682ed9f0199da7449c3ccea55d15f24, type: 3}
+  audioSettings: {fileID: 11400000, guid: 8c5f2e9a1b3d4f67890123456789abcd, type: 2}
 --- !u!1001 &1430599839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3075,6 +3078,11 @@ MonoBehaviour:
   m_AutoStart: 1
   m_Rounds: 5
   m_ChucksPerWave: 3
+  m_PreparationDuration: 5
+  m_GameMusic: {fileID: 8300000, guid: 2aebe0b31daf94445b4b3c6bc5c25f05, type: 3}
+  m_StartSound: {fileID: 8300000, guid: 7f6f8c0e8d1648a4a8d86d2f7d5b5e21, type: 3}
+  m_StartEndSound: {fileID: 8300000, guid: 3d6a9f1b2c4e5f67890123456789abcd, type: 3}
+  m_AudioSettings: {fileID: 11400000, guid: 8c5f2e9a1b3d4f67890123456789abcd, type: 2}
 --- !u!4 &1909369038
 Transform:
   m_ObjectHideFlags: 0

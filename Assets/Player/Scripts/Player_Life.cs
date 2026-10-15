@@ -55,11 +55,11 @@ public class Life : MonoBehaviour
         Debug.Log($"Player iniciado com {m_VidasAtuais} vidas");
     }
 
-    public void TirarVida(int dano, Vector3 posicaoChuck)
+    public bool TirarVida(int dano, Vector3 posicaoChuck)
     {
-        if (m_VidasAtuais <= 0) return;
-        if (m_Invulneravel) return;
-        if (Time.time - m_UltimoDano < m_CooldownDano) return;
+        if (m_VidasAtuais <= 0) return false;
+        if (m_Invulneravel) return false;
+        if (Time.time - m_UltimoDano < m_CooldownDano) return false;
 
         m_VidasAtuais -= dano;
         m_UltimoDano = Time.time;
@@ -71,10 +71,11 @@ public class Life : MonoBehaviour
         if (m_VidasAtuais <= 0)
         {
             MorrerPlayer();
-            return;
+            return true;
         }
 
         StartCoroutine(InvulnerabilidadeRoutine());
+        return true;
     }
 
     private void AplicarKnockback(Vector3 posicaoChuck)
