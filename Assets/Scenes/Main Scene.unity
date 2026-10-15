@@ -327,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -336,6 +336,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -552,7 +556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -561,6 +565,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -636,7 +644,7 @@ MonoBehaviour:
   m_MaxDelay: 3
   m_AutoStart: 1
   m_Rounds: 14
-  m_ChucksPerWave: 5
+  m_ChucksPerWave: 3
   m_PreparationDuration: 5
   m_GameMusic: {fileID: 8300000, guid: 2aebe0b31daf94445b4b3c6bc5c25f05, type: 3}
   m_StartSound: {fileID: 8300000, guid: 7f6f8c0e8d1648a4a8d86d2f7d5b5e21, type: 3}
@@ -722,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -738,7 +746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -914,7 +922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -923,6 +931,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -1114,7 +1126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -1123,6 +1135,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -1203,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -1212,6 +1228,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -1363,7 +1383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -1372,6 +1392,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -1452,7 +1476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -1461,6 +1485,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -1602,7 +1630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -1611,6 +1639,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -1774,12 +1806,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d51c1c9dd4afbad4188564a56a1b8ffc, type: 2}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
       value: 2
@@ -1894,7 +1930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -1903,6 +1939,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -1983,7 +2023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -1992,6 +2032,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -2250,7 +2294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -2259,6 +2303,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -2339,7 +2387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Controller
@@ -2348,6 +2396,10 @@ PrefabInstance:
     - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_LineId
@@ -2559,21 +2611,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1787625718301194920, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
+    - target: {fileID: 1905494730569624128, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3472395604833303327, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
-      propertyPath: m_LineId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5511763961601359747, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 384
-      objectReference: {fileID: 0}
-    - target: {fileID: 8094728462793083541, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 8114885731433204536, guid: 1089cdbd0c5abfb4088b1c0be2d5babc, type: 3}
       propertyPath: m_Name
