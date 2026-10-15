@@ -9,13 +9,10 @@ public class movement : MonoBehaviour
     public LayerMask groundmask;
 
     public bool disable_move = false;
-    [SerializeField] AudioClip runSound;
-    [SerializeField] AudioVolumeSettings audioSettings;
 
     private Rigidbody rb;
     private Vector3 inputDir;
     private float knockbackTimer = 0f;
-    private AudioSource runAudioSource;
 
     public bool EmKnockback => knockbackTimer > 0f;
 
@@ -26,16 +23,6 @@ public class movement : MonoBehaviour
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         speed = 4f;
         pontos = 0;
-
-        runAudioSource = GetComponent<AudioSource>();
-        if (runAudioSource == null)
-            runAudioSource = gameObject.AddComponent<AudioSource>();
-
-        runAudioSource.clip = runSound;
-        runAudioSource.loop = true;
-        runAudioSource.playOnAwake = false;
-        runAudioSource.volume = audioSettings.runVolume;
-        runAudioSource.spatialBlend = 0f;
     }
 
     // Chamado pelo Life quando o player leva um hit
@@ -49,17 +36,7 @@ public class movement : MonoBehaviour
     private void Update()
     {
         inputDir = Vector3.zero;
-        if (disable_move)
-        {
-            StopRunSound();
-            return;
-        }
-
-        if (EmKnockback)
-        {
-            StopRunSound();
-            return;
-        }
+        if (disable_move) return;
 
         KeyCode right, left, up, down;
         if (gameObject.name == "Player1")
@@ -77,23 +54,6 @@ public class movement : MonoBehaviour
         if (Input.GetKey(down)) inputDir += Vector3.back;
 
         inputDir = inputDir.normalized;
-
-        if (inputDir != Vector3.zero)
-            PlayRunSound();
-        else
-            StopRunSound();
-    }
-
-    private void PlayRunSound()
-    {
-        if (runAudioSource != null && runAudioSource.clip != null && !runAudioSource.isPlaying)
-            runAudioSource.Play();
-    }
-
-    private void StopRunSound()
-    {
-        if (runAudioSource != null && runAudioSource.isPlaying)
-            runAudioSource.Stop();
     }
 
     private void FixedUpdate()

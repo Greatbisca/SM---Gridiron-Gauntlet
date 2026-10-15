@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class DetetarPlayer : MonoBehaviour
 {
-    [SerializeField] AudioClip m_HitSound;
-    [SerializeField] AudioVolumeSettings m_AudioSettings;
-
     private void OnTriggerEnter(Collider other)
     {
         TentarAcertar(other);
@@ -21,7 +18,6 @@ public class DetetarPlayer : MonoBehaviour
         if (playerLife == null) return;
 
         Debug.Log("O Inimigo tocou no Player!");
-        if (playerLife.TirarVida(1, transform.position) && m_HitSound != null)
-            AudioSource.PlayClipAtPoint(m_HitSound, playerLife.transform.position, m_AudioSettings.hitVolume);
+        playerLife.TirarVida(1, transform.position);
     }
 }
