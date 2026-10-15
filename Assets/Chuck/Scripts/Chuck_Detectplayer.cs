@@ -4,13 +4,11 @@ public class DetetarPlayer : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered: " + other.name);
         TentarAcertar(other);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision: " + collision.collider.name);
         TentarAcertar(collision.collider);
     }
 

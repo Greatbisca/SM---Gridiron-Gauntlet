@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 1787625718301194920}
   - component: {fileID: 2979667492432776827}
   - component: {fileID: 5511763961601359747}
-  - component: {fileID: 5481579790565234252}
   - component: {fileID: 8094728462793083541}
+  - component: {fileID: -2622668924981074326}
   m_Layer: 8
   m_Name: Chuck
   m_TagString: Untagged
@@ -179,26 +179,6 @@ CapsuleCollider:
   m_Height: 0.88966733
   m_Direction: 1
   m_Center: {x: 0.041698214, y: -0.5321201, z: 0.13376673}
---- !u!114 &5481579790565234252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8114885731433204536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08667f14f41f6174597834316b2ec8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
-  m_Animator: {fileID: 0}
-  m_MinSpeed: 0.3
-  m_Smoothing: 12
-  m_FaceMoveDirection: 0
-  m_TurnSpeed: 15
-  m_YawOffset: 0
-  m_HitLockTime: 1.5
-  m_DebugSpeed: 0
 --- !u!136 &8094728462793083541
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -222,6 +202,26 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.00000005960466, y: 0, z: -0.00000008940699}
+--- !u!114 &-2622668924981074326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8114885731433204536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08667f14f41f6174597834316b2ec8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
+  m_Animator: {fileID: 0}
+  m_MinSpeed: 0.3
+  m_Smoothing: 12
+  m_FaceMoveDirection: 1
+  m_TurnSpeed: 15
+  m_YawOffset: 0
+  m_HitLockTime: 1.5
+  m_DebugSpeed: 0
 --- !u!1001 &5411982003798775761
 PrefabInstance:
   m_ObjectHideFlags: 0
