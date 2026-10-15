@@ -2018,7 +2018,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   m_MaxVidas: 3
   m_VidasAtuais: 0
-  m_KnockbackForce: 100
+  m_TempoInvulnerabilidade: 3
+  m_TempoPiscarDurante: 2.5
+  m_TempoEntrePiscos: 0.1
+  m_KnockbackVelocidade: 8
+  m_KnockbackVertical: 3
+  m_KnockbackDuracao: 0.25
 --- !u!1 &1334827707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8067057683074009942, guid: 993f0602a525d934cbe3d3506aecb755, type: 3}
@@ -2038,7 +2043,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Life
   m_MaxVidas: 3
   m_VidasAtuais: 0
-  m_KnockbackForce: 100
+  m_TempoInvulnerabilidade: 3
+  m_TempoPiscarDurante: 2.5
+  m_TempoEntrePiscos: 0.1
+  m_KnockbackVelocidade: 8
+  m_KnockbackVertical: 3
+  m_KnockbackDuracao: 0.25
 --- !u!1 &1347973559
 GameObject:
   m_ObjectHideFlags: 0
