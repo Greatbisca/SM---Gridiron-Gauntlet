@@ -12,6 +12,9 @@ public class movement : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 inputDir;
+    private float knockbackTimer = 0f;
+
+    public bool EmKnockback => knockbackTimer > 0f;
 
     private void Start()
     {
@@ -20,6 +23,14 @@ public class movement : MonoBehaviour
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         speed = 4f;
         pontos = 0;
+    }
+
+    // Chamado pelo Life quando o player leva um hit
+    public void AplicarKnockback(Vector3 velocidade, float duracao)
+    {
+        if (rb == null) rb = GetComponent<Rigidbody>();
+        knockbackTimer = duracao;
+        rb.linearVelocity = velocidade;
     }
 
     private void Update()
@@ -47,6 +58,13 @@ public class movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Durante o knockback nao mexe na velocidade (senao cancelava o empurrao)
+        if (knockbackTimer > 0f)
+        {
+            knockbackTimer -= Time.fixedDeltaTime;
+            return;
+        }
+
         Vector3 dir = inputDir;
 
         if (dir != Vector3.zero)
@@ -64,7 +82,7 @@ public class movement : MonoBehaviour
         }
 
         Vector3 v = dir * speed;
-        v.y = rb.linearVelocity.y; // mantém a gravidade (Unity 2022 ou anterior: rb.velocity)
+        v.y = rb.linearVelocity.y; // mantém a gravidade
         rb.linearVelocity = v;
     }
 }

@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class DetetarPlayer : MonoBehaviour
 {
-    // Esta função é ativada automaticamente quando o Collider "Is Trigger" toca em algo
     private void OnTriggerEnter(Collider other)
     {
-        // Verifica se o objeto que entrou na área tem a Tag "Player"
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("O Inimigo tocou no Player!");
+        Debug.Log("Triggered: " + other.name);
+        TentarAcertar(other);
+    }
 
-            // Procura o script de vida no Player e tira-lhe 1 vida
-            Life playerLife = other.GetComponent<Life>();
-            if (playerLife != null)
-            {
-                playerLife.TirarVida(1, transform.position);
-            }
-            else
-            {
-                Debug.LogWarning("Player não tem o script Life!");
-            }
-        }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision: " + collision.collider.name);
+        TentarAcertar(collision.collider);
+    }
+
+    private void TentarAcertar(Collider other)
+    {
+        Life playerLife = other.GetComponentInParent<Life>();
+        if (playerLife == null) return;
+
+        Debug.Log("O Inimigo tocou no Player!");
+        playerLife.TirarVida(1, transform.position);
     }
 }
