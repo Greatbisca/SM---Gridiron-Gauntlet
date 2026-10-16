@@ -107,12 +107,23 @@ public class Timer : MonoBehaviour
             remainingPreparation -= Time.deltaTime;
             yield return null;
         }
+		
+		Life life1 = player1 != null ? player1.GetComponent<Life>() : null;
+    	Life life2 = player2 != null ? player2.GetComponent<Life>() : null;
+    	bool track1 = life1 != null;
+    	bool track2 = life2 != null;
+
 
         float elapsedTime = gameDuration;
         int lastWarningSecond = -1;
 
         while (elapsedTime > 0f)
         {
+			livingPlayersAtFinish = CountLivingPlayers();
+
+			if (livingPlayersAtFinish == 0) break;
+
+
             int seconds = Mathf.CeilToInt(elapsedTime);
             UpdateTimerText(seconds);
 
@@ -126,10 +137,12 @@ public class Timer : MonoBehaviour
             yield return null;
         }
 
-        UpdateTimerText(0);
+        if (elapsedTime <= 0f) UpdateTimerText(0);
+
+		if (chuckManager != null) chuckManager.StopGame();
+
         PlaySound(finishSound, audioSettings.finishVolume);
         ShowFinishMessage();
-        livingPlayersAtFinish = CountLivingPlayers();
         LockPlayers();
         timerRoutine = null;
     }
