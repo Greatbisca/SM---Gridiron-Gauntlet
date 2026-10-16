@@ -71,6 +71,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Timer
   warningSound: {fileID: 8300000, guid: 2ec78973a9a1c994cb147b8501a47a50, type: 3}
   finishSound: {fileID: 8300000, guid: b682ed9f0199da7449c3ccea55d15f24, type: 3}
+  winnerSound: {fileID: 8300000, guid: 790cd8e869384c544a4256008f02b657, type: 3}
+  winnersSound: {fileID: 8300000, guid: e0c67ed05c55f254cadad38bf2ffba4d, type: 3}
+  drawSound: {fileID: 8300000, guid: 3893f36a86ecbf640823542bee06df5b, type: 3}
+  winnersMusic: {fileID: 8300000, guid: 180d0dbf7cffd60428640fe299bfa281, type: 3}
+  drawMusic: {fileID: 8300000, guid: a5972916694350a4aba8268421cacce4, type: 3}
   audioSettings: {fileID: 11400000, guid: 8c5f2e9a1b3d4f67890123456789abcd, type: 2}
 --- !u!114 &9103923849503264335
 MonoBehaviour:

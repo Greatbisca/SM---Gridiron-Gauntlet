@@ -104,18 +104,17 @@ public class CameraIntro : MonoBehaviour
     
     public void MoveToEnd()
     {
-        if (m_End == null)
-        {
-            Debug.LogError("CameraIntro: m_End is not assigned!");
-            return;
-        }
-
         StartCoroutine(MoveToEndRoutine());
     }
 
-    
-    IEnumerator MoveToEndRoutine()
+    public IEnumerator MoveToEndRoutine()
     {
+        if (m_End == null)
+        {
+            Debug.LogError("CameraIntro: m_End is not assigned!");
+            yield break;
+        }
+
         yield return new WaitForSeconds(2f);
 
         Vector3 startPos = transform.position;

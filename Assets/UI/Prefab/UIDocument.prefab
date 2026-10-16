@@ -68,3 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d224dee6bf4d247905a19b48fd5de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
+  winnerSound: {fileID: 8300000, guid: 790cd8e869384c544a4256008f02b657, type: 3}
+  winnersSound: {fileID: 8300000, guid: e0c67ed05c55f254cadad38bf2ffba4d, type: 3}
+  drawSound: {fileID: 8300000, guid: 3893f36a86ecbf640823542bee06df5b, type: 3}
+  winnersMusic: {fileID: 8300000, guid: 180d0dbf7cffd60428640fe299bfa281, type: 3}
+  drawMusic: {fileID: 8300000, guid: a5972916694350a4aba8268421cacce4, type: 3}
