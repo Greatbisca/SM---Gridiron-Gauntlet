@@ -10,10 +10,16 @@ public class Timer : MonoBehaviour
     [SerializeField] float gameDuration = 30f;
     [SerializeField] AudioClip warningSound;
     [SerializeField] AudioClip finishSound;
+    [SerializeField] AudioClip winnerSound;
+    [SerializeField] AudioClip winnersSound;
+    [SerializeField] AudioClip drawSound;
+    [SerializeField] AudioClip winnersMusic;
+    [SerializeField] AudioClip drawMusic;
     [SerializeField] AudioVolumeSettings audioSettings;
     [SerializeField] float startMessageDuration = 0.9f;
     [SerializeField] float startMessageExitDuration = 0.18f;
     [SerializeField] CameraIntro cameraIntro;
+    [SerializeField] ChuckManager chuckManager;
 
     // Added: player references and starting positions
     [SerializeField] Transform player1;
@@ -29,6 +35,9 @@ public class Timer : MonoBehaviour
     Label startMessageText;
     Label finishMessageShadow;
     Label finishMessageText;
+    Label winnerMessageShadow;
+    Label winnerMessageText;
+    int livingPlayersAtFinish;
 
     void OnEnable()
     {
@@ -37,6 +46,12 @@ public class Timer : MonoBehaviour
         startMessageText = GetComponent<UIDocument>().rootVisualElement.Q<Label>("start-message");
         finishMessageShadow = GetComponent<UIDocument>().rootVisualElement.Q<Label>("finish-message-shadow");
         finishMessageText = GetComponent<UIDocument>().rootVisualElement.Q<Label>("finish-message");
+        winnerMessageShadow = GetComponent<UIDocument>().rootVisualElement.Q<Label>("winner-message-shadow");
+        winnerMessageText = GetComponent<UIDocument>().rootVisualElement.Q<Label>("winner-message");
+        if (cameraIntro == null)
+            cameraIntro = FindObjectOfType<CameraIntro>();
+        if (chuckManager == null)
+            chuckManager = FindObjectOfType<ChuckManager>();
         soundSource = GetComponent<AudioSource>();
 
         if (soundSource == null)
@@ -49,6 +64,7 @@ public class Timer : MonoBehaviour
         UpdateTimerText(0);
         HideStartMessage();
         HideFinishMessage();
+        HideWinnerMessage();
     }
 
     public void Begin(float preparationDuration)
@@ -113,7 +129,8 @@ public class Timer : MonoBehaviour
         UpdateTimerText(0);
         PlaySound(finishSound, audioSettings.finishVolume);
         ShowFinishMessage();
-		LockPlayers();
+        livingPlayersAtFinish = CountLivingPlayers();
+        LockPlayers();
         timerRoutine = null;
     }
 
@@ -284,9 +301,61 @@ public class Timer : MonoBehaviour
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(ReturnPlayers());
 
-        // Move camera after both players return
         if (cameraIntro != null)
-            cameraIntro.MoveToEnd();
+            yield return StartCoroutine(cameraIntro.MoveToEndRoutine());
+
+        if (chuckManager != null)
+            chuckManager.StopGameMusic();
+
+        yield return StartCoroutine(ShowWinnerResultRoutine());
+    }
+
+    int CountLivingPlayers()
+    {
+        int count = 0;
+        foreach (Life player in FindObjectsOfType<Life>())
+        {
+            if (player.EstaVivo())
+                count++;
+        }
+        return count;
+    }
+
+    IEnumerator ShowWinnerResultRoutine()
+    {
+        string resultText;
+        AudioClip resultSound;
+        AudioClip resultMusic;
+
+        if (livingPlayersAtFinish == 0)
+        {
+            resultText = "TIE!";
+            resultSound = drawSound;
+            resultMusic = drawMusic;
+        }
+        else
+        {
+            resultText = livingPlayersAtFinish == 1 ? "WINNER!" : "WINNERS!";
+            resultSound = livingPlayersAtFinish == 1 ? winnerSound : winnersSound;
+            resultMusic = winnersMusic;
+        }
+
+        ShowWinnerMessage(resultText);
+
+        if (resultSound != null)
+        {
+            soundSource.PlayOneShot(resultSound, 1f);
+            yield return new WaitForSeconds(resultSound.length);
+        }
+
+        if (resultMusic != null)
+        {
+            soundSource.Stop();
+            soundSource.clip = resultMusic;
+            soundSource.loop = false;
+            soundSource.volume = 1f;
+            soundSource.Play();
+        }
     }
 
     // Added: smoothly return both players over 2 seconds
@@ -380,6 +449,57 @@ public class Timer : MonoBehaviour
 
         if (finishMessageShadow != null)
             finishMessageShadow.style.display = DisplayStyle.None;
+    }
+
+    void ShowWinnerMessage(string text)
+    {
+        if (winnerMessageText == null) return;
+
+        winnerMessageText.text = text;
+        winnerMessageText.style.display = DisplayStyle.Flex;
+        if (winnerMessageShadow != null)
+        {
+            winnerMessageShadow.text = text;
+            winnerMessageShadow.style.display = DisplayStyle.Flex;
+        }
+
+        ApplyWinnerMessageTransform(0.72f, 0.72f, -3f);
+        StartCoroutine(WinnerMessageAnimationRoutine());
+    }
+
+    IEnumerator WinnerMessageAnimationRoutine()
+    {
+        float elapsed = 0f;
+        const float entryDuration = 0.45f;
+        while (elapsed < entryDuration && winnerMessageText != null)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / entryDuration);
+            float eased = 1f - Mathf.Pow(1f - t, 3f);
+            float scale = Mathf.Lerp(0.72f, 1f, eased) + Mathf.Sin(t * Mathf.PI) * 0.08f;
+            ApplyWinnerMessageTransform(scale, scale, Mathf.Lerp(-3f, 2f, eased));
+            yield return null;
+        }
+    }
+
+    void ApplyWinnerMessageTransform(float scaleX, float scaleY, float angle)
+    {
+        Vector2 scale = new Vector2(scaleX, scaleY);
+        winnerMessageText.style.scale = new Scale(scale);
+        winnerMessageText.style.rotate = new Rotate(new Angle(angle));
+        if (winnerMessageShadow != null)
+        {
+            winnerMessageShadow.style.scale = new Scale(scale);
+            winnerMessageShadow.style.rotate = new Rotate(new Angle(angle));
+        }
+    }
+
+    void HideWinnerMessage()
+    {
+        if (winnerMessageText != null)
+            winnerMessageText.style.display = DisplayStyle.None;
+        if (winnerMessageShadow != null)
+            winnerMessageShadow.style.display = DisplayStyle.None;
     }
 
     void PlaySound(AudioClip clip, float volume)

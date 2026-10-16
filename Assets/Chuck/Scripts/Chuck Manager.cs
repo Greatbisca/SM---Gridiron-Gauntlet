@@ -70,6 +70,12 @@ public class ChuckManager : MonoBehaviour
         RestorePlayerMovement();
     }
 
+    public void StopGameMusic()
+    {
+        if (m_MusicSource != null)
+            m_MusicSource.Stop();
+    }
+
     IEnumerator GameRoutine()
     {
         LockPlayerMovement();
