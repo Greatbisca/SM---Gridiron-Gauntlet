@@ -19,6 +19,11 @@ public class Life : MonoBehaviour
     [SerializeField] private float m_KnockbackVertical = 3f;
     [SerializeField] private float m_KnockbackDuracao = 0.25f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip m_PlayerHitSound;
+    [SerializeField] private AudioClip m_PlayerEliminatedSound;
+    [SerializeField] private AudioVolumeSettings m_AudioSettings;
+
     private bool m_Invulneravel = false;
     private float m_CooldownDano = 0.5f;
     private float m_UltimoDano = -1000f;
@@ -65,6 +70,12 @@ public class Life : MonoBehaviour
         m_UltimoDano = Time.time;
 
         Debug.Log($"Player atingido! Vidas restantes: {m_VidasAtuais}. Imortal por {m_TempoInvulnerabilidade} segundos");
+        if (m_AudioSettings != null)
+        {
+            bool eliminated = m_VidasAtuais <= 0;
+            PlayPlayerSound(eliminated ? m_PlayerEliminatedSound : m_PlayerHitSound,
+                            eliminated ? m_AudioSettings.playerEliminatedVolume : m_AudioSettings.playerHitVolume);
+        }
 
         AplicarKnockback(posicaoChuck);
 
@@ -76,6 +87,21 @@ public class Life : MonoBehaviour
 
         StartCoroutine(InvulnerabilidadeRoutine());
         return true;
+    }
+
+    private void PlayPlayerSound(AudioClip clip, float volume)
+    {
+        if (clip == null || m_AudioSettings == null) return;
+
+        GameObject soundObject = new GameObject("Player Damage Sound");
+        AudioSource source = soundObject.AddComponent<AudioSource>();
+        source.spatialBlend = 0f;
+        source.playOnAwake = false;
+        source.clip = clip;
+        source.volume = volume;
+        source.Play();
+        DontDestroyOnLoad(soundObject);
+        Destroy(soundObject, clip.length + 0.1f);
     }
 
     private void AplicarKnockback(Vector3 posicaoChuck)

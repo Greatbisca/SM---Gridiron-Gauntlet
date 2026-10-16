@@ -19,11 +19,19 @@ public class ChargeHazard : MonoBehaviour
     [Tooltip("If two Chucks would get closer than this, one waits")]
     public float m_SafeDistance = 1.5f;
 
+    [Header("Preview Audio")]
+    public AudioClip m_PreviewSound;
+    public AudioClip m_ResumeSound;
+    public AudioClip m_FinalChargeLoopSound;
+    public AudioVolumeSettings m_AudioSettings;
+
     public bool IsCharging { get; private set; }
 
     static readonly List<ChargeHazard> s_All = new List<ChargeHazard>();
 
     Rigidbody m_Rb;
+    AudioSource m_AudioSource;
+    AudioSource m_FinalChargeAudioSource;
     Vector3 m_StartPosition;
     Vector3 m_Dir;
     Vector3 m_RunStart;
@@ -35,10 +43,34 @@ public class ChargeHazard : MonoBehaviour
         m_Rb = GetComponent<Rigidbody>();
         m_Rb.freezeRotation = true;
         m_StartPosition = m_Rb.position;
+
+        m_AudioSource = GetComponent<AudioSource>();
+        if (m_AudioSource == null)
+            m_AudioSource = gameObject.AddComponent<AudioSource>();
+
+        m_AudioSource.playOnAwake = false;
+        m_AudioSource.spatialBlend = 1f;
+        m_AudioSource.rolloffMode = AudioRolloffMode.Linear;
+        m_AudioSource.minDistance = 5f;
+        m_AudioSource.maxDistance = 35f;
+        m_AudioSource.dopplerLevel = 0f;
+
+        m_FinalChargeAudioSource = gameObject.AddComponent<AudioSource>();
+        m_FinalChargeAudioSource.playOnAwake = false;
+        m_FinalChargeAudioSource.loop = true;
+        m_FinalChargeAudioSource.spatialBlend = 1f;
+        m_FinalChargeAudioSource.rolloffMode = AudioRolloffMode.Linear;
+        m_FinalChargeAudioSource.minDistance = 5f;
+        m_FinalChargeAudioSource.maxDistance = 35f;
+        m_FinalChargeAudioSource.dopplerLevel = 0f;
     }
 
     void OnEnable()  { s_All.Add(this); }
-    void OnDisable() { s_All.Remove(this); }
+    void OnDisable()
+    {
+        s_All.Remove(this);
+        StopFinalChargeSound();
+    }
 
     public void Charge()
     {
@@ -60,6 +92,8 @@ public class ChargeHazard : MonoBehaviour
         float pauseDistance = m_PauseAfterCells * m_CellSize;
         bool hasPaused = pauseDistance >= m_Distance;
         m_Committed = hasPaused; // no pause on this run, so it is committed from the start
+        if (hasPaused)
+            PlayFinalChargeSound();
 
         while (FlatDistance(m_RunStart, m_Rb.position) < m_Distance)
         {
@@ -68,6 +102,7 @@ public class ChargeHazard : MonoBehaviour
                 hasPaused = true;
                 Stop();
                 m_Waiting = true;
+                PlayPreviewSound();
 
                 yield return new WaitForSeconds(m_PauseTime);
 
@@ -77,6 +112,8 @@ public class ChargeHazard : MonoBehaviour
                     yield return new WaitForFixedUpdate();
                 }
 
+                PlayResumeSound();
+                PlayFinalChargeSound();
                 m_Waiting = false;
                 m_Committed = true;
             }
@@ -86,6 +123,7 @@ public class ChargeHazard : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
+        StopFinalChargeSound();
         Stop();
         m_Committed = false;
         yield return new WaitForSeconds(m_StopTime);
@@ -93,8 +131,34 @@ public class ChargeHazard : MonoBehaviour
         m_Rb.linearVelocity = Vector3.zero;
         m_Rb.position = m_StartPosition;
         transform.position = m_StartPosition;
-
         IsCharging = false;
+    }
+
+    void PlayPreviewSound()
+    {
+        if (m_PreviewSound != null && m_AudioSettings != null)
+            m_AudioSource.PlayOneShot(m_PreviewSound, m_AudioSettings.previewVolume);
+    }
+
+    void PlayResumeSound()
+    {
+        if (m_ResumeSound != null && m_AudioSettings != null)
+            m_AudioSource.PlayOneShot(m_ResumeSound, m_AudioSettings.resumeVolume);
+    }
+
+    void PlayFinalChargeSound()
+    {
+        if (m_FinalChargeLoopSound == null || m_AudioSettings == null) return;
+
+        m_FinalChargeAudioSource.clip = m_FinalChargeLoopSound;
+        m_FinalChargeAudioSource.volume = m_AudioSettings.finalChargeVolume;
+        m_FinalChargeAudioSource.Play();
+    }
+
+    void StopFinalChargeSound()
+    {
+        if (m_FinalChargeAudioSource != null)
+            m_FinalChargeAudioSource.Stop();
     }
 
     bool PathIsClear()

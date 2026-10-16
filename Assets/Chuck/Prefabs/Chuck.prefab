@@ -117,6 +117,10 @@ MonoBehaviour:
   m_PauseAfterCells: 4
   m_PauseTime: 1
   m_SafeDistance: 1
+  m_PreviewSound: {fileID: 8300000, guid: d15764744faaaf644bf17e4d8406bbcd, type: 3}
+  m_ResumeSound: {fileID: 8300000, guid: 500d031efa59db144b605dea6eaacde9, type: 3}
+  m_FinalChargeLoopSound: {fileID: 8300000, guid: 30abb881f159b4f4ba9187d40ecc03ed, type: 3}
+  m_AudioSettings: {fileID: 11400000, guid: 8c5f2e9a1b3d4f67890123456789abcd, type: 2}
 --- !u!54 &1787625718301194920
 Rigidbody:
   m_ObjectHideFlags: 0
