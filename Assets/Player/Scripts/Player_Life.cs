@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class Life : MonoBehaviour
 {
-    [Header("Vidas")]
     [SerializeField] private int m_MaxVidas = 3;
     [SerializeField] private int m_VidasAtuais;
 
-    [Header("Invulnerabilidade")]
     [SerializeField] private float m_TempoInvulnerabilidade = 3f;
     [Tooltip("Pisca durante este tempo; depois fica visivel ate acabar a invulnerabilidade")]
     [SerializeField] private float m_TempoPiscarDurante = 2.5f;
     [SerializeField] private float m_TempoEntrePiscos = 0.1f;
-
-    [Header("Knockback")]
+    
     [SerializeField] private float m_KnockbackVelocidade = 8f;
     [SerializeField] private float m_KnockbackVertical = 3f;
     [SerializeField] private float m_KnockbackDuracao = 0.25f;
 
-    [Header("Audio")]
     [SerializeField] private AudioClip m_PlayerHitSound;
     [SerializeField] private AudioClip m_PlayerEliminatedSound;
     [SerializeField] private AudioVolumeSettings m_AudioSettings;
