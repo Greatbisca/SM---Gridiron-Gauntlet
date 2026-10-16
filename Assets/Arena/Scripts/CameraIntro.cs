@@ -2,29 +2,25 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-/// Put on the Main Camera. The camera starts at m_Start and glides to the pose it has in the scene
-/// (the gameplay position). Optionally freezes the players, holds back the Chucks and hides the HUD until it ends.
 public class CameraIntro : MonoBehaviour
 {
-    [Header("Path")]
     [Tooltip("Where the intro starts. Place it with GameObject > Align With View.")]
     public Transform m_Start;
     [Tooltip("Optional: pulls the path toward this point, so the camera sweeps in a curve instead of a straight line.")]
     public Transform m_Mid;
-
-    [Header("Timing")]
+    
     public float m_StartDelay = 1f;
     public float m_Duration = 4f;
     public AnimationCurve m_Ease = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
     [Tooltip("Press Space to skip the intro")]
     public bool m_AllowSkip = true;
-
-    [Header("Game hooks (all optional)")]
+    
     public bool m_FreezePlayers = true;
     public ChuckManager m_ChuckManager;
     [Tooltip("Objects hidden during the intro and shown when it ends (e.g. the HUD canvas)")]
     public GameObject[] m_ShowAfterIntro;
     public UnityEvent m_OnFinished;
+    public Transform m_End;
 
     Vector3 m_EndPos;
     Quaternion m_EndRot;
@@ -104,6 +100,40 @@ public class CameraIntro : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) m_Skip = true;
 #endif
         return m_Skip;
+    }
+    
+    public void MoveToEnd()
+    {
+        if (m_End == null)
+        {
+            Debug.LogError("CameraIntro: m_End is not assigned!");
+            return;
+        }
+
+        StartCoroutine(MoveToEndRoutine());
+    }
+
+    
+    IEnumerator MoveToEndRoutine()
+    {
+        yield return new WaitForSeconds(2f);
+
+        Vector3 startPos = transform.position;
+        Quaternion startRot = transform.rotation;
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / 2f;
+            float k = Mathf.Clamp01(t);
+
+            transform.position = Vector3.Lerp(startPos, m_End.position, k);
+            transform.rotation = Quaternion.Slerp(startRot, m_End.rotation, k);
+
+            yield return null;
+        }
+
+        transform.SetPositionAndRotation(m_End.position, m_End.rotation);
     }
 
     void Finish()

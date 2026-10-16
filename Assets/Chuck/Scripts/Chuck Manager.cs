@@ -9,16 +9,12 @@ public class ChuckManager : MonoBehaviour
     public float m_MaxDelay = 3f;
     public bool m_AutoStart = true;
     
-    [Header("Rounds")]
     public int m_Rounds = 5;
-
-    [Header("Groups")]
+    
     public int m_ChucksPerWave = 1;
-
-    [Header("Preparation")]
+    
     public float m_PreparationDuration = 5f;
 
-    [Header("Music")]
     public AudioClip m_GameMusic;
     public AudioClip m_StartSound;
     public AudioClip m_StartEndSound;
