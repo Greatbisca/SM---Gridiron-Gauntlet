@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6969533541464747237}
   - component: {fileID: 314787226501397471}
   - component: {fileID: 3018253446582937177}
+  - component: {fileID: 100000000000000002}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Untagged
@@ -185,7 +186,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4774e977452e9b34aa7f1087486536f1, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: '::'
   groundcheck: {fileID: 8884548692717780648}
   speed: 0
@@ -196,3 +197,26 @@ MonoBehaviour:
   disable_move: 0
   runSound: {fileID: 8300000, guid: 9d31d5ae5d4ff9c498b422d6a531bdc6, type: 3}
   audioSettings: {fileID: 11400000, guid: 8c5f2e9a1b3d4f67890123456789abcd, type: 2}
+--- !u!114 &100000000000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8067057683074009942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ac324515ea7df4887bc5693d7ab753, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::Life
+  m_MaxVidas: 3
+  m_VidasAtuais: 0
+  m_TempoInvulnerabilidade: 1.5
+  m_TempoPiscarDurante: 1.5
+  m_TempoEntrePiscos: 0.1
+  m_KnockbackVelocidade: 8
+  m_KnockbackVertical: 3
+  m_KnockbackDuracao: 0.25
+  m_PlayerHitSound: {fileID: 8300000, guid: c9d104e61615e974cb7dba4b28bec243, type: 3}
+  m_PlayerEliminatedSound: {fileID: 8300000, guid: f55f21ec74cb466448b5dab2a00574cc, type: 3}
+  m_AudioSettings: {fileID: 11400000, guid: 8c5f2e9a1b3d4f67890123456789abcd, type: 2}

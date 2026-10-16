@@ -83,6 +83,8 @@ public class ChuckManager : MonoBehaviour
 
         yield return new WaitForSeconds(m_PreparationDuration);
         PlayStartSound();
+        if (m_Timer != null)
+            m_Timer.ShowStartMessage();
         PlayGameMusic();
         RestorePlayerMovement();
         StartCoroutine(PlayStartEndSound());

@@ -239,6 +239,9 @@ MonoBehaviour:
   m_KnockbackVelocidade: 8
   m_KnockbackVertical: 3
   m_KnockbackDuracao: 0.25
+  m_PlayerHitSound: {fileID: 8300000, guid: c9d104e61615e974cb7dba4b28bec243, type: 3}
+  m_PlayerEliminatedSound: {fileID: 8300000, guid: f55f21ec74cb466448b5dab2a00574cc, type: 3}
+  m_AudioSettings: {fileID: 11400000, guid: 8c5f2e9a1b3d4f67890123456789abcd, type: 2}
 --- !u!1001 &3701419764277572568
 PrefabInstance:
   m_ObjectHideFlags: 0

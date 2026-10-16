@@ -11,9 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abf6c0a7df54bd5a0f93b12e8d4c761, type: 3}
   m_EditorClassIdentifier: 
   musicVolume: 0.1
-  startVolume: 5
+  startVolume: 1
   startEndVolume: 1
-  finishVolume: 5
+  finishVolume: 1
   warningVolume: 1
   runVolume: 0.25
   hitVolume: 1.5
+  playerHitVolume: 1
+  playerEliminatedVolume: 1
+  previewVolume: 0.2
+  resumeVolume: 0.2
+  finalChargeVolume: 0.2
